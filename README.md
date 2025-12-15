@@ -4,7 +4,7 @@ A minimalist art gallery website built with Next.js, TypeScript, and Tailwind CS
 
 ## Features
 
-- **Responsive Design**: Mobile-first design inspired by Katharina Reichart's gallery aesthetic
+- **Responsive Design**: Mobile-first design 
 - **Hero Section**: Full-width video hero with smooth animations extending to navbar
 - **Painting Gallery**: Database-driven paintings managed by admin
 - **Static Collection**: 8 hard-coded paintings displayed on homepage
@@ -49,7 +49,6 @@ cp .env.example .env.local
 # Update environment variables with your Supabase credentials
 # NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 # NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-# SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 # NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER=your_phone_number
 # NEXT_PUBLIC_ADMIN_EMAIL=your_email
 
@@ -199,7 +198,6 @@ Create \`.env.local\`:
 # Supabase Configuration (Required for database)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 # WhatsApp Contact
 NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER=919663608903
@@ -238,7 +236,6 @@ NEXT_PUBLIC_ADMIN_EMAIL=revanthacharya9481@gmail.com
 Environment variables needed on your hosting:
 - NEXT_PUBLIC_SUPABASE_URL
 - NEXT_PUBLIC_SUPABASE_ANON_KEY
-- SUPABASE_SERVICE_ROLE_KEY
 - NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER
 - NEXT_PUBLIC_ADMIN_EMAIL
 
@@ -252,6 +249,4 @@ For issues or questions:
 
 All rights reserved © 2025 Revanths Gallery
 
----
 
-Built with ❤️ using Next.js and v0
