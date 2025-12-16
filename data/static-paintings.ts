@@ -7,7 +7,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "True Inside",
     subtitle: "OIL ON CANVAS · 100 × 80 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f2.jpg",
+    thumbnailUrl: "/f1.jpg",
   },
 
   // 2. veil-of-emotion (Medium portrait)
