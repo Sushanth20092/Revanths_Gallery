@@ -15,15 +15,17 @@ export function HeroSection() {
         muted
         playsInline
         preload="auto"
-        poster="/hero-poster.jpg" // 👈 IMPORTANT (first frame image)
+        poster="/hero-poster.png" // 👈 IMPORTANT (first frame image)
         onCanPlayThrough={() => setVideoLoaded(true)}
-        className={`
-          absolute inset-0 w-full h-full object-cover
-          transition-all duration-1000 ease-out
-          ${videoLoaded
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-105 translate-y-8"}
-        `}
+     className={`
+  absolute inset-0 w-full h-full
+  object-cover
+  object-[25%_50%] md:object-center
+  transition-all duration-1000 ease-out
+  ${videoLoaded
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-8"}
+`}
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
