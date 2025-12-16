@@ -6,6 +6,19 @@ import { useEffect, useState } from "react"
 export function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false)
 
+  useEffect(() => {
+    // Preload video in background after initial page render
+    const video = document.createElement('link')
+    video.rel = 'preload'
+    video.as = 'video'
+    video.href = '/hero.mp4'
+    document.head.appendChild(video)
+
+    return () => {
+      document.head.removeChild(video)
+    }
+  }, [])
+
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-20 pt-20">
       {/* VIDEO */}
@@ -14,18 +27,18 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        preload="auto"
-        poster="/hero-poster.png" // 👈 IMPORTANT (first frame image)
-        onCanPlayThrough={() => setVideoLoaded(true)}
-     className={`
-  absolute inset-0 w-full h-full
-  object-cover
-  object-[25%_50%] md:object-center
-  transition-all duration-1000 ease-out
-  ${videoLoaded
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-8"}
-`}
+        preload="metadata"
+        poster="/hero-poster.png"
+        onLoadedData={() => setVideoLoaded(true)}
+        className={`
+          absolute inset-0 w-full h-full
+          object-cover
+          object-[25%_50%] md:object-center
+          transition-all duration-1000 ease-out
+          ${videoLoaded
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-105"}
+        `}
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
