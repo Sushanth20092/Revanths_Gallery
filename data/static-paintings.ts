@@ -53,7 +53,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Against the Tide",
     subtitle: "ACRYLIC ON CANVAS · 75 × 84 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f5.jpg",
+    thumbnailUrl: "/f55.jpg",
   },
 
   // 6. Unbound (Medium portrait)
@@ -62,7 +62,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Unbound",
     subtitle: "ACRYLIC ON CANVAS · 29.7 × 42 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f6.jpg",
+    thumbnailUrl: "/f66.jpg",
   },
 
   // 7. Gentle Strength (Small portrait)
@@ -71,7 +71,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Gentle Strength",
     subtitle: "ACRYLIC ON CANVAS · 23 × 28 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f7.jpg",
+    thumbnailUrl: "/f77.jpg",
   },
 
   // 8. Whispering Falls (Tall portrait)
@@ -80,6 +80,6 @@ export const staticPaintings: StaticPainting[] = [
     title: "Whispering Falls",
     subtitle: "ACRYLIC ON CANVAS · 61 × 86 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f8.jpg",
+    thumbnailUrl: "/f88.jpg",
   },
 ]

@@ -181,6 +181,19 @@
     opacity: 0;
   }
 
+  /* Home: first painting quartet reveal */
+  .viewport-reveal-card {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    transition: transform 760ms ease-out, opacity 760ms ease-out;
+    will-change: transform, opacity;
+  }
+
+  .viewport-reveal-card[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
