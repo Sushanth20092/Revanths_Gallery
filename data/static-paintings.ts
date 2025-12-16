@@ -34,7 +34,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Divine Resonance",
     subtitle: "ACRYLIC ON CANVAS · 100 × 80 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f4.jpg",
+    thumbnailUrl: "/f4new.jpg",
   },
 
    // etra. Divine Resonance (Square)
