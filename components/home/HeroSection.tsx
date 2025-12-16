@@ -6,19 +6,6 @@ import { useEffect, useState } from "react"
 export function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false)
 
-  useEffect(() => {
-    // Preload video in background after initial page render
-    const video = document.createElement('link')
-    video.rel = 'preload'
-    video.as = 'video'
-    video.href = '/hero.mp4'
-    document.head.appendChild(video)
-
-    return () => {
-      document.head.removeChild(video)
-    }
-  }, [])
-
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-20 pt-20">
       {/* VIDEO */}
@@ -27,7 +14,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/hero-poster.png"
         onLoadedData={() => setVideoLoaded(true)}
         className={`
