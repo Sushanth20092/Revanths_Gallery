@@ -5,7 +5,7 @@ export const staticPaintings: StaticPainting[] = [
   {
     slug: "true-inside",
     title: "True Inside",
-    subtitle: "OIL ON CANVAS · 100 × 80 CM",
+    subtitle: "ACRYLIC ON CANVAS · 100 × 80 CM",
     status: "NOT_FOR_SALE",
     thumbnailUrl: "/fnew.jpg",
   },
@@ -14,7 +14,7 @@ export const staticPaintings: StaticPainting[] = [
   {
     slug: "veil-of-emotion",
     title: "veil-of-emotion",
-    subtitle: "OIL ON CANVAS · 29.7 × 42 CM",
+    subtitle: "ACRYLIC ON CANVAS · 29.7 × 42 CM",
     status: "NOT_FOR_SALE",
     thumbnailUrl: "/f2.jpg",
   },
