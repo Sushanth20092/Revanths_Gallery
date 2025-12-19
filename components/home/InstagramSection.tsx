@@ -90,6 +90,9 @@ function InstagramReels() {
             onMouseEnter={() => play(index)}
             onMouseLeave={() => pause(index)}
           >
+            {!videoLoaded[index] && (
+              <div className="absolute inset-0 bg-muted animate-pulse" />
+            )}
             <video
               ref={(el) => {
                 videoRefs.current[index] = el
@@ -108,7 +111,7 @@ function InstagramReels() {
               className="w-full h-auto"
               style={{
                 opacity: videoLoaded[index] ? 1 : 0,
-                transition: "opacity 600ms ease-out",
+                transition: "opacity 800ms ease-in-out",
               }}
             />
           </div>

@@ -12,7 +12,7 @@ export function FirstPaintingsGrid() {
       <div className="max-w-7xl mx-auto">
         {/* Desktop: Flexible grid with proportional scaling */}
         <div className="hidden lg:grid grid-cols-12 gap-6 items-start">
-          {/* True Inside - Largest - spans 5 columns */}
+          {/* True Inside - Largest - spans 5 columns - LOADS FIRST */}
           <div
             className="col-span-5 group cursor-pointer viewport-reveal-card"
             data-viewport-reveal="true"
@@ -27,6 +27,7 @@ export function FirstPaintingsGrid() {
                   className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 92vw"
                   priority
+                  loading="eager"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
                   <h3 className="text-lg font-serif font-bold text-gray-400 mb-1">{displayPaintings[0].title}</h3>
@@ -38,7 +39,7 @@ export function FirstPaintingsGrid() {
 
           {/* Right side with three paintings */}
           <div className="col-span-7 grid grid-cols-7 gap-6">
-            {/* Crimson Silence - spans 3 columns */}
+            {/* Crimson Silence - spans 3 columns - LOADS SECOND */}
             <div
               className="col-span-3 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
@@ -52,6 +53,7 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 18vw, (min-width: 768px) 50vw, 100vw"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
                     <h3 className="text-base font-serif font-bold text-gray-400 mb-1">{displayPaintings[2].title}</h3>
@@ -61,7 +63,7 @@ export function FirstPaintingsGrid() {
               </Link>
             </div>
 
-            {/* Divine Resonance - spans 4 columns (same as True Inside proportionally) */}
+            {/* Divine Resonance - spans 4 columns - LOADS THIRD */}
             <div
               className="col-span-4 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
@@ -75,6 +77,7 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 86vw"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
                     <h3 className="text-lg font-serif font-bold text-gray-400 mb-1">
@@ -88,7 +91,7 @@ export function FirstPaintingsGrid() {
               </Link>
             </div>
 
-            {/* Veil of Emotion - spans 2 columns, positioned below center */}
+            {/* Veil of Emotion - spans 2 columns, positioned below center - LOADS LAST */}
             <div
               className="col-span-2 col-start-2 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
@@ -102,6 +105,7 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 12vw, (min-width: 768px) 50vw, 82vw"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
                     <h3 className="text-base font-serif font-bold text-gray-400 mb-1">
@@ -134,6 +138,8 @@ export function FirstPaintingsGrid() {
                     fill 
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 768px) 50vw, 100vw"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
                     <h3 className="text-lg font-serif font-bold text-gray-400 mb-1">{painting.title}</h3>
@@ -162,6 +168,7 @@ export function FirstPaintingsGrid() {
                   className="object-cover"
                   sizes="92vw"
                   priority
+                  loading="eager"
                 />
                 <div className="absolute bottom-0 p-4">
                   <h3 className="text-sm font-serif font-bold text-gray-300">
@@ -186,6 +193,7 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="86vw"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-0 p-4">
                   <h3 className="text-sm font-serif font-bold text-gray-300">
@@ -210,6 +218,7 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="50vw"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-0 p-3">
                   <h3 className="text-xs font-serif font-bold text-gray-300">
@@ -234,6 +243,7 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="41vw"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-0 p-2.5">
                   <h3 className="text-[11px] font-serif font-bold text-gray-300">
