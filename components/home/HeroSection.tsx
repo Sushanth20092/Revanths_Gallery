@@ -38,7 +38,7 @@ export function HeroSection() {
               : "opacity-0 scale-105"}
           `}
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/Hero.mp4" type="video/mp4" />
         </video>
       )}
 
