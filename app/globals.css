@@ -210,3 +210,54 @@
     animation-delay: 0.3s;
   }
 }
+
+/* GPU-accelerated card wrapper */
+.gpu-card {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+}
+
+/* Shadow effect via pseudo-element (no repaint) */
+.gpu-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 300ms;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gpu-card:hover::after {
+  opacity: 1;
+}
+
+/* GPU-accelerated image scaling */
+.gpu-image {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Staggered viewport reveals - prevents all cards animating in same frame */
+.viewport-reveal-card[data-card-index="0"] {
+  animation-delay: 0ms;
+}
+
+.viewport-reveal-card[data-card-index="1"] {
+  animation-delay: 50ms;
+}
+
+.viewport-reveal-card[data-card-index="2"] {
+  animation-delay: 100ms;
+}
+
+.viewport-reveal-card[data-card-index="3"] {
+  animation-delay: 150ms;
+}
