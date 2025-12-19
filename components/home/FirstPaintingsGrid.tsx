@@ -26,7 +26,6 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 92vw"
-                  quality={85}
                   priority
                   loading="eager"
                 />
@@ -54,7 +53,6 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 18vw, (min-width: 768px) 50vw, 100vw"
-                    quality={85}
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
@@ -79,7 +77,6 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 86vw"
-                    quality={85}
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
@@ -108,7 +105,6 @@ export function FirstPaintingsGrid() {
                     fill
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 1024px) 12vw, (min-width: 768px) 50vw, 82vw"
-                    quality={85}
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
@@ -142,7 +138,6 @@ export function FirstPaintingsGrid() {
                     fill 
                     className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    quality={85}
                     loading={index === 0 ? "eager" : "lazy"}
                     priority={index === 0}
                   />
@@ -172,7 +167,6 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="92vw"
-                  quality={85}
                   priority
                   loading="eager"
                 />
@@ -199,7 +193,6 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="86vw"
-                  quality={85}
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 p-4">
@@ -225,7 +218,6 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="50vw"
-                  quality={85}
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 p-3">
@@ -251,7 +243,6 @@ export function FirstPaintingsGrid() {
                   fill
                   className="object-cover"
                   sizes="41vw"
-                  quality={85}
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 p-2.5">

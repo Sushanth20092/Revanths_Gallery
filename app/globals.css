@@ -210,13 +210,12 @@
     animation-delay: 0.3s;
   }
 }
-/* GPU-accelerated card wrapper - Force GPU compositing */
+/* GPU-accelerated card wrapper */
 .gpu-card {
-  will-change: auto; /* Changed from transform to auto for better memory */
-  transform: translate3d(0, 0, 0); /* Force GPU layer */
+  will-change: transform;
+  transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
   position: relative;
 }
 
@@ -228,7 +227,7 @@
   border-radius: inherit;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   opacity: 0;
-  transition: opacity 300ms ease-out;
+  transition: opacity 300ms;
   pointer-events: none;
   z-index: 1;
 }
@@ -239,26 +238,10 @@
 
 /* GPU-accelerated image scaling */
 .gpu-image {
-  will-change: auto;
-  transform: translate3d(0, 0, 0); /* Force GPU layer */
+  will-change: transform;
+  transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Optimized viewport reveal cards - Smoother transitions */
-.viewport-reveal-card {
-  opacity: 0;
-  transform: translate3d(0, 24px, 0) scale(0.98);
-  transition: 
-    transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: auto;
-}
-
-.viewport-reveal-card[data-visible="true"] {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
 }
 
 /* Sequential staggered viewport reveals - DESKTOP OPTIMIZATION */
@@ -269,15 +252,15 @@
   }
 
   .viewport-reveal-card[data-card-index="1"] {
-    transition-delay: 180ms; /* Crimson Silence - loads after True Inside */
+    transition-delay: 150ms; /* Crimson Silence - loads after True Inside */
   }
 
   .viewport-reveal-card[data-card-index="2"] {
-    transition-delay: 360ms; /* Divine Resonance - loads after Crimson */
+    transition-delay: 300ms; /* Divine Resonance - loads after Crimson */
   }
 
   .viewport-reveal-card[data-card-index="3"] {
-    transition-delay: 540ms; /* Veil of Emotion - loads last */
+    transition-delay: 450ms; /* Veil of Emotion - loads last */
   }
 }
 
@@ -288,30 +271,14 @@
   }
 
   .viewport-reveal-card[data-card-index="1"] {
-    transition-delay: 100ms;
+    transition-delay: 80ms;
   }
 
   .viewport-reveal-card[data-card-index="2"] {
-    transition-delay: 200ms;
+    transition-delay: 160ms;
   }
 
   .viewport-reveal-card[data-card-index="3"] {
-    transition-delay: 300ms;
-  }
-}
-
-/* Prevent scroll jank - contain layout and paint */
-.viewport-reveal-card,
-.gpu-card {
-  contain: layout style paint;
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .viewport-reveal-card,
-  .gpu-card,
-  .gpu-image {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+    transition-delay: 240ms;
   }
 }
