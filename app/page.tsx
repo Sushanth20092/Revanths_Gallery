@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { usePaintingsCache } from "@/hooks/usePaintingsCache"
@@ -19,6 +19,7 @@ export default function Home() {
   const featuredPaintings = dynamicPaintings.filter((p) => p.is_featured_home).slice(0, 2)
   
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const setupCompleteRef = useRef(false)
 
   useEffect(() => {
     setMounted(true)
@@ -26,64 +27,69 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
+  const setupScrollReveal = useCallback(() => {
+    // Prevent multiple setups
+    if (setupCompleteRef.current) return
+    
+    // Wait for DOM to be fully ready
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const cards = document.querySelectorAll<HTMLElement>('[data-viewport-reveal="true"]')
+        
+        // Exit if no cards found or observer already exists
+        if (cards.length === 0 || observerRef.current) return
+
+        // Set transition delays
+        cards.forEach((card) => {
+          const index = Number(card.dataset.cardIndex || "0")
+          card.style.transitionDelay = `${index * 120}ms`
+        })
+
+        // Create single observer with optimized settings
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const target = entry.target as HTMLElement
+                // Use requestAnimationFrame to avoid layout thrashing
+                requestAnimationFrame(() => {
+                  target.dataset.visible = "true"
+                })
+                observer.unobserve(target)
+              }
+            })
+          },
+          {
+            threshold: 0.16,
+            rootMargin: '50px'
+          }
+        )
+
+        observerRef.current = observer
+
+        // Observe all cards
+        cards.forEach((card) => observer.observe(card))
+        
+        setupCompleteRef.current = true
+      })
+    })
+  }, [])
+
   useEffect(() => {
     if (!mounted || !isLoaded) return
 
-    // Passive scroll listener for better performance
-    let ticking = false
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    // Optimized Intersection Observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement
-            
-            // Batch DOM updates
-            requestAnimationFrame(() => {
-              target.setAttribute('data-visible', 'true')
-            })
-            
-            // Unobserve immediately after triggering
-            observer.unobserve(target)
-          }
-        })
-      },
-      {
-        threshold: 0.15,
-        rootMargin: '80px 0px', // Start loading slightly before viewport
-      }
-    )
-
-    observerRef.current = observer
-
-    // Observe all reveal cards after a brief delay to let layout settle
-    const timeoutId = setTimeout(() => {
-      const cards = document.querySelectorAll<HTMLElement>('[data-viewport-reveal="true"]')
-      cards.forEach((card) => {
-        observer.observe(card)
-      })
-    }, 100)
+    // Setup with slight delay to ensure DOM is ready
+    const timeoutId = setTimeout(setupScrollReveal, 100)
 
     return () => {
       clearTimeout(timeoutId)
-      window.removeEventListener('scroll', handleScroll)
       if (observerRef.current) {
         observerRef.current.disconnect()
+        observerRef.current = null
       }
+      setupCompleteRef.current = false
     }
-  }, [mounted, isLoaded])
+  }, [mounted, isLoaded, setupScrollReveal])
 
   if (!mounted) {
     return null
