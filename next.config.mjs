@@ -19,7 +19,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/hero-poster.png',
+        source: '/hero-poster.webp',
         headers: [
           {
             key: 'Cache-Control',
