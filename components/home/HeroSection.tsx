@@ -16,8 +16,16 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-20 pt-20">
-
+    <section
+      className="
+        relative w-full h-screen flex items-center justify-center overflow-hidden
+        -mt-20 pt-20
+        bg-cover bg-center
+      "
+      style={{
+        backgroundImage: "url('/hero-poster.webp')",
+      }}
+    >
       {/* VIDEO */}
       {showVideo && (
         <video
@@ -33,9 +41,7 @@ export function HeroSection() {
             object-cover
             object-[25%_50%] md:object-center
             transition-all duration-1000 ease-out
-            ${videoLoaded
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-105"}
+            ${videoLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
           <source src="/hero.mp4" type="video/mp4" />
