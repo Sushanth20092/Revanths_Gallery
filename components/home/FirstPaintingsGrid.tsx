@@ -9,44 +9,44 @@ export function FirstPaintingsGrid() {
 
   return (
          <section className="py-20 md:py-32 px-4 md:px-6 lg:px-12 xl:px-16 bg-background">
-      <div className="max-w-7xl mx-auto">
-       {/* Desktop: Flexible grid with proportional scaling */}
-        <div className="hidden lg:grid grid-cols-12 gap-8 items-start">
-          {/* True Inside - Largest - spans 5 columns - LOADS FIRST */}
-          <div
-            className="col-span-4 group cursor-pointer viewport-reveal-card mt-40"
-            data-viewport-reveal="true"
-            data-card-index="0"
-          >
-            <Link href="/originals">
-              <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card">
-                <Image
-                  src={displayPaintings[0].thumbnailUrl || "/placeholder.svg"}
-                  alt={displayPaintings[0].title}
-                  fill
-                  className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 92vw"
-                  priority
-                  loading="eager"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
-                  <h3 className="text-lg font-serif font-bold text-gray-400 mb-1">{displayPaintings[0].title}</h3>
-                  <p className="text-sm font-sans text-gray-400">{displayPaintings[0].subtitle}</p>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Right side with three paintings */}
-          <div className="col-span-7 grid grid-cols-7 gap-8">
-            {/* Divine Resonance - spans 4 columns - LOADS SECOND */}
+      <div className="max-w-6xl mx-auto">
+       {/* Desktop: Vertical stacked layout with original sizes */}
+        <div className="hidden lg:flex flex-col items-center space-y-20">
+          {/* Top row - True Inside and Divine Resonance */}
+          <div className="w-full flex justify-center gap-20 items-start">
+            {/* True Inside - Left, largest - Original scale 1.06 */}
             <div
-              className="col-span-4 group cursor-pointer viewport-reveal-card"
+              className="w-[39.33%] mt-40 group cursor-pointer viewport-reveal-card"
+              data-viewport-reveal="true"
+              data-card-index="0"
+            >
+              <Link href="/originals">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card transition-shadow duration-300 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+                  <Image
+                    src={displayPaintings[0].thumbnailUrl || "/placeholder.svg"}
+                    alt={displayPaintings[0].title}
+                    fill
+                    className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 92vw"
+                    priority
+                    loading="eager"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
+                    <h3 className="text-lg font-serif font-bold text-gray-400 mb-1">{displayPaintings[0].title}</h3>
+                    <p className="text-sm font-sans text-gray-400">{displayPaintings[0].subtitle}</p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Divine Resonance - Right side, large - Original scale 1.06 */}
+            <div
+              className="w-[39.33%] group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
               data-card-index="1"
             >
               <Link href="/originals">
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card transition-shadow duration-300 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
                   <Image
                     src={displayPaintings[3].thumbnailUrl || '/placeholder.svg'}
                     alt={displayPaintings[3].title}
@@ -66,15 +66,18 @@ export function FirstPaintingsGrid() {
                 </div>
               </Link>
             </div>
+          </div>
 
-            {/* Crimson Silence - spans 3 columns - LOADS THIRD */}
+          {/* Bottom row - Crimson Silence and Veil of Emotion */}
+          <div className="w-full flex justify-center gap-20 items-start">
+            {/* Crimson Silence - Left, medium size - Original size without scale */}
             <div
-              className="col-span-3 group cursor-pointer viewport-reveal-card mt-40"
+              className="w-[30%] mt-10 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
               data-card-index="2"
             >
               <Link href="/originals">
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl gpu-card">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl gpu-card transition-shadow duration-300 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
                   <Image
                     src={displayPaintings[2].thumbnailUrl || "/placeholder.svg"}
                     alt={displayPaintings[2].title}
@@ -91,14 +94,14 @@ export function FirstPaintingsGrid() {
               </Link>
             </div>
 
-            {/* Veil of Emotion - spans 2 columns, positioned below left - LOADS LAST */}
+            {/* Veil of Emotion - Right side, smallest - Original scale 1.08 */}
             <div
-              className="col-span-2 col-start-2 group cursor-pointer viewport-reveal-card mt-8"
+              className="w-[17.67%]  group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
               data-card-index="3"
             >
               <Link href="/originals">
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl transform scale-[1.08] -translate-x-4 gpu-card">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl transform scale-[1.08] gpu-card transition-shadow duration-300 group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
                   <Image
                     src={displayPaintings[1].thumbnailUrl || '/placeholder.svg'}
                     alt={displayPaintings[1].title}
@@ -120,6 +123,7 @@ export function FirstPaintingsGrid() {
             </div>
           </div>
         </div>
+
         {/* Tablet: 2-column grid */}
         <div className="hidden md:grid lg:hidden grid-cols-2 gap-6">
           {displayPaintings.map((painting, index) => (

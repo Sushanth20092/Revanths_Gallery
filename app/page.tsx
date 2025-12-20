@@ -104,6 +104,7 @@ export default function Home() {
 
         {/* First 4 Paintings Grid */}
         <FirstPaintingsGrid />
+         
 
         {/* Artist Signature Section */}
         <ArtistSignature />
@@ -115,6 +116,7 @@ export default function Home() {
 
         {/* Next 4 Paintings Grid */}
         <SecondPaintingsGrid />
+        
 
         {/* Second Featured Painting */}
         {featuredPaintings.length > 1 && (
