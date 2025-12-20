@@ -7,7 +7,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "True Inside",
     subtitle: "ACRYLIC ON CANVAS · 100 × 80 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/fnew.jpg",
+    thumbnailUrl: "/fnew.webp",
   },
 
   // 2. veil-of-emotion (Medium portrait)
@@ -16,7 +16,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "veil-of-emotion",
     subtitle: "ACRYLIC ON CANVAS · 29.7 × 42 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f2.jpg",
+    thumbnailUrl: "/f2.webp",
   },
 
   // 3.Crimson Silence (Square)
@@ -25,7 +25,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Crimson Silence",
     subtitle: "ACRYLIC ON CANVAS · 60.96 × 60.96 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f3.jpg",
+    thumbnailUrl: "/f3.webp",
   }, 
 
   // 4. Divine Resonance (Square)
@@ -34,7 +34,7 @@ export const staticPaintings: StaticPainting[] = [
     title: "Divine Resonance",
     subtitle: "ACRYLIC ON CANVAS · 100 × 80 CM",
     status: "NOT_FOR_SALE",
-    thumbnailUrl: "/f4new.jpg",
+    thumbnailUrl: "/f4new.webp",
   },
 
    // etra. Divine Resonance (Square)
