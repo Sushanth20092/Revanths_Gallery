@@ -8,18 +8,18 @@ export function FirstPaintingsGrid() {
   const displayPaintings = useMemo(() => staticPaintings.slice(0, 4), [])
 
   return (
-    <section className="py-20 md:py-32 px-4 md:px-6 bg-background">
+         <section className="py-20 md:py-32 px-4 md:px-6 lg:px-12 xl:px-16 bg-background">
       <div className="max-w-7xl mx-auto">
-        {/* Desktop: Flexible grid with proportional scaling */}
-        <div className="hidden lg:grid grid-cols-12 gap-6 items-start">
+       {/* Desktop: Flexible grid with proportional scaling */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 items-start">
           {/* True Inside - Largest - spans 5 columns - LOADS FIRST */}
           <div
-            className="col-span-5 group cursor-pointer viewport-reveal-card"
+            className="col-span-4 group cursor-pointer viewport-reveal-card mt-40"
             data-viewport-reveal="true"
             data-card-index="0"
           >
             <Link href="/originals">
-              <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl gpu-card">
+              <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card">
                 <Image
                   src={displayPaintings[0].thumbnailUrl || "/placeholder.svg"}
                   alt={displayPaintings[0].title}
@@ -38,36 +38,12 @@ export function FirstPaintingsGrid() {
           </div>
 
           {/* Right side with three paintings */}
-          <div className="col-span-7 grid grid-cols-7 gap-6">
-            {/* Crimson Silence - spans 3 columns - LOADS SECOND */}
-            <div
-              className="col-span-3 group cursor-pointer viewport-reveal-card"
-              data-viewport-reveal="true"
-              data-card-index="1"
-            >
-              <Link href="/originals">
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl gpu-card">
-                  <Image
-                    src={displayPaintings[2].thumbnailUrl || "/placeholder.svg"}
-                    alt={displayPaintings[2].title}
-                    fill
-                    className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(min-width: 1024px) 18vw, (min-width: 768px) 50vw, 100vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
-                    <h3 className="text-base font-serif font-bold text-gray-400 mb-1">{displayPaintings[2].title}</h3>
-                    <p className="text-xs font-sans text-gray-400">{displayPaintings[2].subtitle}</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            {/* Divine Resonance - spans 4 columns - LOADS THIRD */}
+          <div className="col-span-7 grid grid-cols-7 gap-8">
+            {/* Divine Resonance - spans 4 columns - LOADS SECOND */}
             <div
               className="col-span-4 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
-              data-card-index="2"
+              data-card-index="1"
             >
               <Link href="/originals">
                 <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl scale-[1.06] gpu-card">
@@ -91,9 +67,33 @@ export function FirstPaintingsGrid() {
               </Link>
             </div>
 
-            {/* Veil of Emotion - spans 2 columns, positioned below center - LOADS LAST */}
+            {/* Crimson Silence - spans 3 columns - LOADS THIRD */}
             <div
-              className="col-span-2 col-start-2 group cursor-pointer viewport-reveal-card"
+              className="col-span-3 group cursor-pointer viewport-reveal-card mt-40"
+              data-viewport-reveal="true"
+              data-card-index="2"
+            >
+              <Link href="/originals">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary rounded-2xl gpu-card">
+                  <Image
+                    src={displayPaintings[2].thumbnailUrl || "/placeholder.svg"}
+                    alt={displayPaintings[2].title}
+                    fill
+                    className="object-cover gpu-image transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 18vw, (min-width: 768px) 50vw, 100vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10">
+                    <h3 className="text-base font-serif font-bold text-gray-400 mb-1">{displayPaintings[2].title}</h3>
+                    <p className="text-xs font-sans text-gray-400">{displayPaintings[2].subtitle}</p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Veil of Emotion - spans 2 columns, positioned below left - LOADS LAST */}
+            <div
+              className="col-span-2 col-start-2 group cursor-pointer viewport-reveal-card mt-8"
               data-viewport-reveal="true"
               data-card-index="3"
             >
@@ -120,7 +120,6 @@ export function FirstPaintingsGrid() {
             </div>
           </div>
         </div>
-
         {/* Tablet: 2-column grid */}
         <div className="hidden md:grid lg:hidden grid-cols-2 gap-6">
           {displayPaintings.map((painting, index) => (
