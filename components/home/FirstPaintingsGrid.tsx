@@ -16,7 +16,7 @@ export function FirstPaintingsGrid() {
           <div className="w-full flex justify-center gap-20 items-start">
             {/* True Inside - Left, largest - Original scale 1.06 */}
             <div
-              className="w-[39.33%] mt-40 group cursor-pointer viewport-reveal-card"
+              className="w-[35.33%] mt-40 group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
               data-card-index="0"
             >
@@ -41,7 +41,7 @@ export function FirstPaintingsGrid() {
 
             {/* Divine Resonance - Right side, large - Original scale 1.06 */}
             <div
-              className="w-[39.33%] group cursor-pointer viewport-reveal-card"
+              className="w-[35.33%] group cursor-pointer viewport-reveal-card"
               data-viewport-reveal="true"
               data-card-index="1"
             >
