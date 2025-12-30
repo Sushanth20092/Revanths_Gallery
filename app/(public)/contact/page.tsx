@@ -99,7 +99,7 @@ export default function ContactPage() {
                 icon: Instagram,
                 title: "Follow Us",
                 description: "Stay updated with new artworks",
-                link: "https://instagram.com",
+                link: "https://www.instagram.com/_revanth___/",
                 linkText: "@_revanth___",
                 external: true,
               },
