@@ -187,7 +187,7 @@ All "Ask for Price" buttons throughout the site:
 Configure in environment:
 \`\`\`env
 NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER=919663608903
-NEXT_PUBLIC_ADMIN_EMAIL=revanthacharya9481@gmail.com
+NEXT_PUBLIC_ADMIN_EMAIL=yourgmail@gmail.com
 \`\`\`
 
 ## Environment Variables
