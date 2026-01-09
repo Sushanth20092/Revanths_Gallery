@@ -282,3 +282,155 @@
     transition-delay: 240ms;
   }
 }
+
+/* =========================
+   PRELOADER (ART-YAKUSHEV STYLE)
+   ========================= */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Fade out as letters fly away */
+  transition: opacity 0.8s ease;
+}
+
+.preloader-text {
+  display: flex;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: white;
+  will-change: transform;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(20px);
+  will-change: transform, filter, opacity;
+}
+
+/* R letter - reveal blur, then slide LEFT */
+.letter-r {
+  animation: 
+    revealBlur 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+    slideToLeft 2.2s cubic-bezier(0.33, 0.0, 0.2, 1) 0.9s forwards;
+}
+
+/* G letter - reveal blur, then slide RIGHT */
+.letter-g {
+  animation: 
+    revealBlur 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards,
+    slideToRight 2.2s cubic-bezier(0.33, 0.0, 0.2, 1) 0.9s forwards;
+}
+
+/* Preloader fade out - happens while letters are sliding */
+.preloader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* Smooth transition as letters slide */
+  transition: opacity 1s ease;
+}
+
+/* Keyframes */
+
+/* Initial blur reveal - letters appear in center */
+@keyframes revealBlur {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
+  }
+}
+
+/* R slides to the LEFT edge with motion blur, then fades */
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-100vw);
+    filter: blur(15px);
+    opacity: 0;
+  }
+}
+
+/* G slides to the RIGHT edge with motion blur, then fades */
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(100vw);
+    filter: blur(15px);
+    opacity: 0;
+  }
+}
+
+/* Enhanced version with scale for more impact */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes slideToLeft {
+    0% {
+      transform: translateX(0) scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.8;
+    }
+    80% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(-100vw) scale(1.2);
+      filter: blur(15px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideToRight {
+    0% {
+      transform: translateX(0) scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.8;
+    }
+    80% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(100vw) scale(1.2);
+      filter: blur(15px);
+      opacity: 0;
+    }
+  }
+}
