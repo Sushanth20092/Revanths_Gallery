@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState, useRef, useCallback } from "react"
+import { useRouter } from "next/navigation"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -32,6 +33,19 @@ export default function Home() {
   useEffect(() => {
     setMounted(true)
 
+    // Check if user navigated from another page (not a refresh)
+    const navigatedFromPage = sessionStorage.getItem('navigated-from-page')
+    
+    if (navigatedFromPage) {
+      // Skip preloader animation - user came from another page
+      setIsLoaded(true)
+      setPreloadDone(true)
+      // Clear the flag
+      sessionStorage.removeItem('navigated-from-page')
+      return
+    }
+
+    // Show preloader on first load or refresh
     // Animation sequence:
     // 0.0s - 0.8s: Blur reveal
     // 0.9s - 3.1s: Letters slide SLOWLY to edges (2.2s duration)
@@ -48,6 +62,25 @@ export default function Home() {
       clearTimeout(contentTimer)
     }
   }, [])
+
+  // Set flag when navigating away from home page
+  useEffect(() => {
+    const handleLinkClick = () => {
+      sessionStorage.setItem('navigated-from-page', 'true')
+    }
+
+    // Listen for all link clicks
+    const links = document.querySelectorAll('a[href^="/"]')
+    links.forEach(link => {
+      link.addEventListener('click', handleLinkClick)
+    })
+
+    return () => {
+      links.forEach(link => {
+        link.removeEventListener('click', handleLinkClick)
+      })
+    }
+  }, [mounted])
 
   const setupScrollReveal = useCallback(() => {
     if (setupCompleteRef.current) return
