@@ -182,7 +182,7 @@ Only the authorized admin email works:
 All "Ask for Price" buttons throughout the site:
 - Open WhatsApp chat
 - Pre-fill message with painting title
-- Use phone number: +91 96636 08903
+- Use phone number: "admins phone number"
 
 Configure in environment:
 \`\`\`env
@@ -243,7 +243,7 @@ Environment variables needed on your hosting:
 
 For issues or questions:
 - **Email**: revanthacharya9481@gmail.com
-- **WhatsApp**: +91 96636 08903
+- **WhatsApp**: "admins phone number"
 
 ## License
 
